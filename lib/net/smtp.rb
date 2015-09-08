@@ -462,7 +462,7 @@ module Net
       
       if @use_tls
         raise 'openssl library not installed' unless defined?(OpenSSL)
-        context = OpenSSL::SSL::SSLContext.new
+        context = OpenSSL::SSL::SSLContext.new('TLSv1_2')
         context.verify_mode = @verify
         if @certs
           if File.file?(@certs)
